@@ -1,0 +1,103 @@
+### User Signup
+POST http://localhost:1300/signup
+Content-Type: application/json
+
+{
+  "username": "A",
+  "password": "123"
+}
+
+### User Login
+POST http://localhost:1300/login
+Content-Type: application/json
+
+{
+    "username": "A",
+    "password": "123"
+}
+
+
+### Admin Signup
+POST http://localhost:1300/signup
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "adminpass",
+  "role": "administrator"
+}
+
+
+### Admin Login
+POST http://localhost:1300/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "adminpass"
+}
+
+
+### Add train
+POST http://localhost:1300/trains
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluaXN0cmF0b3IiLCJpYXQiOjE3MjI4NjAwNjksImV4cCI6MTcyMjg2MzY2OX0.GbHoRaDvpdvba6JkkHH1X8DfC4fYqcOxmU_9HYG53VU
+
+{
+  "train_name": "Express 103",
+  "source_station": "Station A",
+  "destination_station": "Station B",
+  "total_seats": 100
+}
+
+
+### deleting train details
+DELETE http://localhost:1300/trains/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluaXN0cmF0b3IiLCJpYXQiOjE3MjI4MzExNTIsImV4cCI6MTcyMjgzNDc1Mn0.ie9p4g4qIAd6i-coybKRyX6o_dSnmSqQvFKnI2IVfGo
+
+
+### Updating train Data
+PUT http://localhost:1300/trains/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluaXN0cmF0b3IiLCJpYXQiOjE3MjI4MzExNTIsImV4cCI6MTcyMjgzNDc1Mn0.ie9p4g4qIAd6i-coybKRyX6o_dSnmSqQvFKnI2IVfGo
+
+{
+  "train_name": "Express 101 Updated",
+  "source_station": "Station A",
+  "destination_station": "Station B",
+  "total_seats": 150
+}
+
+
+### fetching train details
+GET http://localhost:1300/trains?source_station=Station A&destination_station=Station B
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMjgzMTIyNiwiZXhwIjoxNzIyODM0ODI2fQ.K2Fg0qGP2WLdFLPYiUAnpexMnsU0kDQFh4qeqYHDGrE
+
+
+### getting seat details
+GET http://localhost:1300/trains/3/seats
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMjgzMTIyNiwiZXhwIjoxNzIyODM0ODI2fQ.K2Fg0qGP2WLdFLPYiUAnpexMnsU0kDQFh4qeqYHDGrE
+
+
+### booking seats
+POST http://localhost:1300/bookings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMjgzMTIyNiwiZXhwIjoxNzIyODM0ODI2fQ.K2Fg0qGP2WLdFLPYiUAnpexMnsU0kDQFh4qeqYHDGrE
+
+{
+  "user_id": 1,
+  "train_id": 3,
+  "seats_booked": 2
+}
+
+
+### getting booking details
+GET http://localhost:1300/bookings/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkEiLCJyb2xlIjoidXNlciIsImlhdCI6MTcyMjgzMTIyNiwiZXhwIjoxNzIyODM0ODI2fQ.K2Fg0qGP2WLdFLPYiUAnpexMnsU0kDQFh4qeqYHDGrE
+
+### Deleting User Table
+DELETE http://localhost:1300/delete/user
+
+
+### Get users data
+GET http://localhost:1300/usersdata
